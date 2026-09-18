@@ -1,0 +1,1644 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Una galaxia muy, muy lejana... ❤️</title>
+
+<style>
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #02030a;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   ESTRELLAS
+========================= */
+
+.space {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 30%, #ffffff 1px, transparent 1px),
+        radial-gradient(circle at 70% 20%, #ffffff 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, #ffffff 1px, transparent 1px),
+        radial-gradient(circle at 90% 70%, #ffffff 1px, transparent 1px),
+        radial-gradient(circle at 10% 90%, #ffffff 1px, transparent 1px);
+
+    background-size: 180px 180px;
+
+    animation: stars 20s linear infinite;
+
+    z-index: -2;
+}
+
+@keyframes stars {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(180px);
+    }
+}
+
+
+/* =========================
+   PANTALLA INICIAL
+========================= */
+
+.intro {
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.intro-content {
+
+    max-width: 800px;
+
+    animation: fadeIn 2s ease;
+}
+
+.small-title {
+
+    color: #ffd700;
+
+    letter-spacing: 5px;
+
+    font-size: 15px;
+
+    margin-bottom: 30px;
+}
+
+.intro h1 {
+
+    font-size: clamp(38px, 7vw, 75px);
+
+    margin-bottom: 30px;
+
+    color: #ffe81f;
+
+    text-shadow: 0 0 20px rgba(255,232,31,.5);
+}
+
+.intro p {
+
+    font-size: 22px;
+
+    line-height: 1.8;
+
+    color: #ddd;
+
+    margin-bottom: 15px;
+}
+
+.highlight {
+
+    color: #ff5c8a;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+button {
+
+    margin-top: 30px;
+
+    padding: 16px 35px;
+
+    border: 2px solid #ffe81f;
+
+    background: transparent;
+
+    color: #ffe81f;
+
+    border-radius: 40px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover {
+
+    background: #ffe81f;
+
+    color: #000;
+
+    box-shadow: 0 0 30px #ffe81f;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   MISIÓN
+========================= */
+
+#mission {
+
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 100px 25px;
+
+    text-align: center;
+}
+
+.mission-title {
+
+    font-size: 45px;
+
+    color: #ffe81f;
+
+    margin-bottom: 15px;
+}
+
+.mission-subtitle {
+
+    color: #bbb;
+
+    font-size: 18px;
+
+    margin-bottom: 70px;
+}
+
+
+/* =========================
+   NAVE
+========================= */
+
+.ship {
+
+    font-size: 70px;
+
+    display: inline-block;
+
+    animation: fly 3s ease-in-out infinite;
+
+    margin-bottom: 50px;
+}
+
+@keyframes fly {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-20px)
+            rotate(3deg);
+    }
+}
+
+
+/* =========================
+   PLANETAS
+========================= */
+
+.planets {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 80px;
+
+    flex-wrap: wrap;
+
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.planet-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.planet {
+
+    width: 130px;
+
+    height: 130px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: .4s;
+
+    box-shadow:
+        0 0 35px rgba(255,255,255,.15);
+}
+
+.planet:hover {
+
+    transform: scale(1.18);
+
+    box-shadow:
+        0 0 50px rgba(255,255,255,.35);
+}
+
+.planet1 {
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #ff9f43,
+            #8e2de2
+        );
+}
+
+.planet2 {
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #5ee7df,
+            #1b4d8c
+        );
+}
+
+.planet3 {
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ff758c,
+            #7b1fa2
+        );
+}
+
+.planet4 {
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #ffd86f,
+            #f39c12
+        );
+}
+
+.planet-name {
+
+    margin-top: 18px;
+
+    color: #ffe81f;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.88);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 10;
+}
+
+.modal-content {
+
+    max-width: 650px;
+
+    width: 100%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #11152c,
+            #050612
+        );
+
+    border: 1px solid #ffe81f;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 50px rgba(255,232,31,.2);
+
+    animation: pop .4s ease;
+}
+
+@keyframes pop {
+
+    from {
+
+        transform: scale(.7);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+
+    color: #ffe81f;
+
+    margin-bottom: 25px;
+}
+
+.modal-content > p {
+
+    color: #ddd;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+}
+
+.close {
+
+    margin-top: 25px;
+
+    border-color: #ff5c8a;
+
+    color: #ff5c8a;
+}
+
+
+/* =====================================================
+   CHAT ESTILO INSTAGRAM
+===================================================== */
+
+.instagram-chat {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    background: #050509;
+
+    border: 1px solid #292929;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    text-align: left;
+
+    box-shadow:
+        0 0 30px rgba(255,255,255,.05);
+}
+
+
+/* ENCABEZADO DEL CHAT */
+
+.chat-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 18px;
+
+    border-bottom: 1px solid #292929;
+
+    background: #08080d;
+}
+
+.profile-circle {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #833ab4,
+            #fd1d1d,
+            #fcb045
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 19px;
+}
+
+.chat-header strong {
+
+    display: block;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.chat-header small {
+
+    display: block;
+
+    color: #888;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+
+/* MENSAJES */
+
+.chat-messages {
+
+    padding: 25px 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    min-height: 350px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(100,100,255,.08),
+            transparent 40%
+        );
+}
+
+
+/* MENSAJE DE ÉL */
+
+.message.received {
+
+    align-self: flex-start;
+
+    background: #262626;
+
+    color: white;
+
+    padding: 11px 15px;
+
+    border-radius:
+        20px
+        20px
+        20px
+        5px;
+
+    max-width: 80%;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* TU MENSAJE */
+
+.message.sent {
+
+    align-self: flex-end;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6a5acd,
+            #b84cff
+        );
+
+    color: white;
+
+    padding: 11px 15px;
+
+    border-radius:
+        20px
+        20px
+        5px
+        20px;
+
+    max-width: 80%;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* MENSAJE ESPECIAL */
+
+.story-message {
+
+    text-align: center;
+
+    color: #ffe81f;
+
+    font-size: 14px;
+
+    margin: 25px 0 5px;
+
+    font-style: italic;
+}
+
+
+/* TEXTO DEBAJO DEL CHAT */
+
+.beginning-ending {
+
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+.beginning-ending p {
+
+    color: #ddd;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+.small-note {
+
+    margin-top: 25px;
+
+    color: #888 !important;
+
+    font-size: 13px !important;
+}
+
+.hello {
+
+    color: #ff5c8a !important;
+
+    font-size: 25px !important;
+
+    font-weight: bold;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   RETO
+========================= */
+
+.challenge {
+
+    margin: 100px auto 0;
+
+    max-width: 700px;
+
+    padding: 40px;
+
+    border: 1px solid #333b66;
+
+    border-radius: 20px;
+
+    background: rgba(10,15,40,.6);
+}
+
+.challenge h2 {
+
+    color: #ffe81f;
+
+    margin-bottom: 20px;
+}
+
+.challenge p {
+
+    color: #ddd;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+.answer-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.answer-buttons button {
+
+    margin-top: 15px;
+}
+
+#answer {
+
+    margin-top: 20px;
+
+    color: #ff5c8a;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+#final {
+
+    display: none;
+
+    min-height: 100vh;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.final-content {
+
+    max-width: 800px;
+}
+
+.final-content .heart {
+
+    font-size: 90px;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+
+        transform: scale(1);
+    }
+
+    50% {
+
+        transform: scale(1.2);
+    }
+}
+
+.final-content h1 {
+
+    color: #ffe81f;
+
+    font-size:
+        clamp(
+            35px,
+            6vw,
+            65px
+        );
+
+    margin: 25px 0;
+}
+
+.final-content p {
+
+    font-size: 23px;
+
+    line-height: 1.8;
+
+    color: #ddd;
+}
+
+.final-message {
+
+    margin-top: 35px;
+
+    color: #ff5c8a !important;
+
+    font-size: 28px !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   ANIMACIÓN
+========================= */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .intro h1 {
+
+        font-size: 42px;
+    }
+
+    .intro p {
+
+        font-size: 18px;
+    }
+
+    .mission-title {
+
+        font-size: 32px;
+    }
+
+    .planets {
+
+        gap: 45px;
+    }
+
+    .planet {
+
+        width: 110px;
+
+        height: 110px;
+    }
+
+    .modal-content {
+
+        padding: 25px 15px;
+    }
+
+    .challenge {
+
+        padding: 25px 20px;
+    }
+
+    .final-content p {
+
+        font-size: 18px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- FONDO ESPACIAL -->
+
+<div class="space"></div>
+
+
+<!-- ==================================================
+     PANTALLA INICIAL
+================================================== -->
+
+<section class="intro" id="intro">
+
+    <div class="intro-content">
+
+        <div class="small-title">
+
+            UNA HISTORIA DE HACE MUCHO TIEMPO...
+
+        </div>
+
+
+        <h1>
+
+            Una galaxia muy,<br>
+
+            muy lejana...
+
+        </h1>
+
+
+        <p>
+
+            Existía un chico que amaba
+
+            <span class="highlight">
+
+                Star Wars
+
+            </span>.
+
+        </p>
+
+
+        <p>
+
+            Y, sin darse cuenta,
+
+            se convirtió en la persona favorita
+
+            de alguien. ❤️
+
+        </p>
+
+
+        <button onclick="startMission()">
+
+            ✨ INICIAR MISIÓN ✨
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     MISIÓN
+================================================== -->
+
+<section id="mission">
+
+
+    <div class="ship">
+
+        🚀
+
+    </div>
+
+
+    <h1 class="mission-title">
+
+        MISIÓN: ENCONTRAR A MI PERSONA FAVORITA
+
+    </h1>
+
+
+    <p class="mission-subtitle">
+
+        Explora los planetas para descubrir nuestra historia...
+
+    </p>
+
+
+
+    <!-- PLANETAS -->
+
+    <div class="planets">
+
+
+        <!-- PLANETA 1 -->
+
+        <div class="planet-container">
+
+            <div
+                class="planet planet1"
+                onclick="openPlanet(1)"
+            >
+            </div>
+
+            <div class="planet-name">
+
+                🌎 El comienzo
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PLANETA 2 -->
+
+        <div class="planet-container">
+
+            <div
+                class="planet planet2"
+                onclick="openPlanet(2)"
+            >
+            </div>
+
+            <div class="planet-name">
+
+                ⭐ Nuestros momentos
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PLANETA 3 -->
+
+        <div class="planet-container">
+
+            <div
+                class="planet planet3"
+                onclick="openPlanet(3)"
+            >
+            </div>
+
+            <div class="planet-name">
+
+                💕 Lo que siento
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PLANETA 4 -->
+
+        <div class="planet-container">
+
+            <div
+                class="planet planet4"
+                onclick="openPlanet(4)"
+            >
+            </div>
+
+            <div class="planet-name">
+
+                🚀 Nuestro futuro
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         RETO JEDI
+    ================================================== -->
+
+    <div class="challenge">
+
+
+        <h2>
+
+            🧩 PRUEBA DEL JEDI
+
+        </h2>
+
+
+        <p>
+
+            Antes de completar la misión,
+
+            debes responder una pregunta importante:
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            <strong>
+
+                ¿Quién es la persona que más te ama
+
+                en toda la galaxia?
+
+            </strong>
+
+        </p>
+
+
+
+        <div class="answer-buttons">
+
+
+            <button onclick="wrongAnswer()">
+
+                Darth Vader
+
+            </button>
+
+
+            <button onclick="correctAnswer()">
+
+                Yo ❤️
+
+            </button>
+
+
+            <button onclick="wrongAnswer()">
+
+                Yoda
+
+            </button>
+
+
+        </div>
+
+
+        <p id="answer"></p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     MODAL
+================================================== -->
+
+<div class="modal" id="modal">
+
+
+    <div class="modal-content">
+
+
+        <h2 id="modalTitle"></h2>
+
+
+        <div id="modalText"></div>
+
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+
+            Cerrar ✨
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     FINAL
+================================================== -->
+
+<section id="final">
+
+
+    <div class="final-content">
+
+
+        <div class="heart">
+
+            ❤️
+
+        </div>
+
+
+        <h1>
+
+            MISIÓN COMPLETADA
+
+        </h1>
+
+
+        <p>
+
+            Después de viajar por galaxias,
+
+            explorar planetas y superar pruebas...
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            descubrí que no necesito viajar
+
+            a una galaxia muy, muy lejana
+
+            para encontrar lo que estaba buscando.
+
+        </p>
+
+
+        <p class="final-message">
+
+            Te encontré a ti. ❤️
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            Mi persona favorita en toda la galaxia:
+
+        </p>
+
+
+        <p class="final-message">
+
+            TÚ.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+
+/* ==================================================
+   INICIAR MISIÓN
+================================================== */
+
+function startMission() {
+
+    document.getElementById("intro").style.display = "none";
+
+    document.getElementById("mission").style.display = "block";
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+/* ==================================================
+   PLANETAS
+================================================== */
+
+function openPlanet(number) {
+
+
+    let title = "";
+
+    let text = "";
+
+
+
+    /* ===============================================
+       PLANETA 1 — EL COMIENZO
+    =============================================== */
+
+    if (number === 1) {
+
+
+        title = "🌎 EL COMIENZO";
+
+
+        text = `
+
+            <div class="instagram-chat">
+
+
+                <!-- CABECERA -->
+
+                <div class="chat-header">
+
+
+                    <div class="profile-circle">
+
+                        ❤️
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+
+                            Él
+
+                        </strong>
+
+
+                        <small>
+
+                            Instagram · Hace mucho tiempo...
+
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- MENSAJES -->
+
+                <div class="chat-messages">
+
+
+                    <!-- MENSAJE DE ÉL -->
+
+                    <div class="message received">
+
+                        Hola, vi que le diste like a mi nota,
+
+                        ¿te gusta Arctic Monkeys?
+
+                    </div>
+
+
+
+                    <!-- TU MENSAJE -->
+
+                    <div class="message sent">
+
+                        Hola 🫶
+
+                    </div>
+
+
+
+                    <!-- TU SEGUNDO MENSAJE -->
+
+                    <div class="message sent">
+
+                        Síí, me gustan algunas músicas:
+
+                        <br><br>
+
+                        🎵 <i>Fluorescent Adolescent</i>
+
+                        <br>
+
+                        🎵 <i>No.1 Party Anthem</i>
+
+                        <br>
+
+                        🎵 <i>I Wanna Be Yours</i>
+
+                    </div>
+
+
+
+                    <!-- MENSAJE ESPECIAL -->
+
+                    <div class="story-message">
+
+                        Y así comenzó todo... 🌌
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TEXTO FINAL -->
+
+            <div class="beginning-ending">
+
+
+                <p>
+
+                    En ese momento ninguno de los dos sabía
+
+                    que una simple conversación sobre
+
+                    Arctic Monkeys iba a convertirse
+
+                    en el comienzo de algo mucho más bonito. ❤️
+
+                </p>
+
+
+                <p class="small-note">
+
+                    Y pensar que todo empezó con un simple...
+
+                </p>
+
+
+                <p class="hello">
+
+                    "Hola" 🥹
+
+                </p>
+
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* ===============================================
+       PLANETA 2 — NUESTROS MOMENTOS
+    =============================================== */
+
+    if (number === 2) {
+
+
+        title = "⭐ NUESTROS MOMENTOS";
+
+
+        text = `
+
+            Cada momento contigo se ha convertido
+
+            en un pequeño recuerdo que quiero guardar.
+
+            <br><br>
+
+            Las risas, las conversaciones,
+
+            las locuras y hasta los momentos difíciles.
+
+            <br><br>
+
+            Todos forman parte de nuestra historia.
+
+            <br><br>
+
+            Y espero que todavía nos queden
+
+            muchísimos momentos por vivir. ❤️
+
+        `;
+
+    }
+
+
+
+    /* ===============================================
+       PLANETA 3 — LO QUE SIENTO
+    =============================================== */
+
+    if (number === 3) {
+
+
+        title = "💕 LO QUE SIENTO";
+
+
+        text = `
+
+            Quizás no siempre encuentro las palabras
+
+            perfectas para decirlo.
+
+            <br><br>
+
+            Pero quiero que sepas que eres alguien
+
+            increíblemente especial para mí.
+
+            <br><br>
+
+            Me haces feliz de maneras que quizás
+
+            ni siquiera te imaginas.
+
+            <br><br>
+
+            Y cada día me alegra saber
+
+            que estás en mi vida. ❤️
+
+        `;
+
+    }
+
+
+
+    /* ===============================================
+       PLANETA 4 — NUESTRO FUTURO
+    =============================================== */
+
+    if (number === 4) {
+
+
+        title = "🚀 NUESTRO FUTURO";
+
+
+        text = `
+
+            No sé qué planetas visitaremos,
+
+            qué aventuras tendremos
+
+            ni qué nos espera más adelante.
+
+            <br><br>
+
+            Pero sí sé algo...
+
+            <br><br>
+
+            Me gustaría seguir compartiendo
+
+            muchas aventuras contigo.
+
+            <br><br>
+
+            Y si la vida fuera una galaxia,
+
+            espero seguir encontrándote
+
+            en cada una de ellas. MI GALAK 🌌❤️
+
+        `;
+
+    }
+
+
+
+    /* MOSTRAR MODAL */
+
+    document.getElementById("modalTitle").innerHTML = title;
+
+    document.getElementById("modalText").innerHTML = text;
+
+    document.getElementById("modal").style.display = "flex";
+
+}
+
+
+
+/* ==================================================
+   CERRAR MODAL
+================================================== */
+
+function closeModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+}
+
+
+
+/* ==================================================
+   RESPUESTAS DEL RETO
+================================================== */
+
+function wrongAnswer() {
+
+
+    document.getElementById("answer").innerHTML =
+
+        "❌ Respuesta incorrecta, joven Padawan. Inténtalo otra vez. 😌";
+
+}
+
+
+
+function correctAnswer() {
+
+
+    document.getElementById("answer").innerHTML =
+
+        "✅ ¡Respuesta correcta! La Fuerza está contigo. ❤️";
+
+
+
+    setTimeout(() => {
+
+
+        document.getElementById("mission").style.display = "none";
+
+
+        document.getElementById("final").style.display = "flex";
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+
+    }, 1800);
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
+```
